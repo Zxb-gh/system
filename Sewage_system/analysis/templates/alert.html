@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>报警管理</title>
+{% endblock %}
+{% block left %}
+    <form action="/analysis/alert/" method="post">
+    <div class="web-1" style="left: 0px">
+		<div ><a href="/analysis/index/" class="page-1" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;"><h2>实时显示</h2></a></div>
+		<div ><a href="/analysis/alert/" class="page-2"
+                  style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#DA70D6;
+                    text-align: center;
+                    line-height: 90px;">
+                    <h2>报警管理</h2>
+        </a></div>
+		<div ><a href="/analysis/manage/" class="page-3" style="display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;
+                    " >
+            <h2>设备管理</h2></a></div>
+		<div ><a href="/analysis/history/" class="page-4" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;">
+            <h2>历史查询</h2></a></div>
+	</div>
+    <div class="web-7" style="float: right;
+	                            margin:20px 0 0 0;
+	                            left: 380px;
+	                            width: 100%;
+	                            /*background:#e4e4e4;*/
+	                            position: absolute;">
+       <div class="h-t-1"><h2>报警查询</h2></div>
+        <div>
+
+         <label style="font-size: 23px;" class="h-s-1">请输入设备号</label>
+                 <input
+                 type="text"
+                 name="sendor"
+                 value="{{form.sendor.value|default_if_none:''}}"
+                 placeholder="如ph-1-1"
+                 style="border:solid 1px;
+                        height: 23px;
+                        color: #0d0d0d;
+                        text-overline-color:#0d0d0d ;
+                        text-align: center"
+                 />
+                    {{ form.sendor.errors }}
+             <input style="font-size: 80px; width: 120px; height: 50px;" type="submit" value="查询">
+
+        </div>
+
+        <div class="h-t-2"><h2>报警记录</h2></div>
+        <table class="h-tb-1" border='1'  width= '830px' height= '400px' style="border: #0d0d0d">
+            <tr  style="border: 1px solid #000000;">
+                <td><div class="h-l-1">测量编号</div></td>
+                <td><div class="h-l-1">处理池编号</div></td>
+                <td><div class="h-l-1">测量数值</div></td>
+                <td><div class="h-l-1">测量时间</div></td>
+                <td><div class="h-l-1">报警类型</div></td>
+                <td><div class="h-l-1">处理员编号</div></td>
+                <td><div class="h-l-1">处理时间</div></td>
+                <td><div class="h-l-1">是否处理</div></td>
+            </tr>
+            {% for itme in analysis %}
+            <tr>
+                <td><div class="h-l-1">{{ itme.4 }}</div></td>
+                <td><div class="h-l-1">{{ itme.0 }}</div></td>
+                <td><div class="h-l-1">{{ itme.2 }}</div></td>
+                <td><div class="h-l-1">{{ itme.3 }}</div></td>
+                {% if itme.1 == '-1' %}
+                    <td><div class="h-l-1">偏低</div></td>
+                {% elif itme.1 == '2' %}
+                    <td><div class="h-l-1">偏高</div></td>
+                {% else %}
+                    <td><div class="h-l-1">正常</div></td>
+                {% endif %}
+                <td><div class="h-l-1">{{ itme.5 }}</div></td>
+                <td><div class="h-l-1">{{ itme.6 }}</div></td>
+                <td><div class="h-l-1">{{ itme.7 }}</div></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </form>
+{% endblock %}

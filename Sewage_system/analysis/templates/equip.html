@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+    {% block title %}
+	<title>设备管理</title>
+    {% endblock %}
+{% block left %}
+    <div class="web-1">
+		<div ><a href="/analysis/index/" class="page-1" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;"><h2>实时显示</h2></a></div>
+		<div ><a href="/analysis/alert/" class="page-2"
+                 style="display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;
+                    " >
+                    <h2>报警管理</h2>
+        </a></div>
+		<div ><a href="" class="page-3"  style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#DA70D6;
+                    text-align: center;
+                    line-height: 90px;">
+            <h2>设备管理</h2></a></div>
+		<div ><a href="/analysis/history/" class="page-4" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;">
+            <h2>历史查询</h2></a></div>
+	</div>
+    <div class="web-5">
+   <div class="web-4">
+{#    <div class="eqp-1"><h2>设备状态监控管理</h2></div>#}
+       <div>
+{#           <div ><h3>池内</h3></div>#}
+           <div>
+               <div class="eq-se" ><h3>PH传感器</h3></div>
+               {% if row.0.0 == 1 %}
+                   <div class="ph-1">正常</div>
+               {% else %}
+                   <div class="ph-1" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.2.0 == 1 %}
+                   <div class="ph-2">正常</div>
+               {% else %}
+                   <div class="ph-2" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.3.0 == 1 %}
+                   <div class="ph-3">正常</div>
+               {% else %}
+                   <button class="ph-3" style="background-color: red; border: 5px solid red">维修</button>
+               {% endif %}
+               {% if row.5.0 == 1 %}
+                   <div class="ph-4">正常</div>
+               {% else%}
+                   <div class="ph-4" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.7.0 == 1 %}
+                   <div class="ph-5">正常</div>
+               {% else %}
+                   <div class="ph-5" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.9.0 == 1 %}
+                   <div class="ph-6">正常</div>
+               {% else %}
+                   <div class="ph-6" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+
+               <div class="eq-cell-1">一级处理池</div>
+               <div class="eq-cell-2">二级处理池</div>
+               <div class="eq-cell-3">三级处理池</div>
+           </div>
+           <div>
+               <div class="eq-so"><h3>固体传感器</h3></div>
+               {% if row.10.0 == 1 %}
+                   <div class="e-s-1">正常</div>
+               {% else %}
+                   <div class="e-s-1" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.11.0 == 1 %}
+                   <div class="e-s-2">正常</div>
+               {% else %}
+                   <div class="e-s-2" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               {% if row.12.0 == 1 %}
+                   <div class="e-s-3">正常</div>
+               {% else %}
+                   <div class="e-s-3" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+               <div class="es-cell-1">一级处理池</div>
+               <div class="es-cell-2">二级处理池</div>
+
+           </div>
+
+           <div>
+               <div class="eq-m"><h3>重金属传感器</h3></div>
+               {% if row.15.0 == 1 %}
+                   <div class="eq-m-1">正常</div>
+               {% else %}
+                   <div class="eq-m-1">正常</div>
+               {% endif %}
+
+               {% if row.16.0 == 1 %}
+                   <div class="eq-m-2">正常</div>
+               {% else %}
+                   <div class="eq-m-2" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+           </div>
+
+           <div>
+               <div class="eq-a"><h3>氨氮传感器</h3></div>
+               {% if row.13.0 == 1 %}
+               <div class="eq-a-1">正常</div>
+               {% else %}
+                   <div class="eq-a-1" style="background-color: red; border: 5px solid red">维修</div>
+               {% endif %}
+                {% if row.14.0 == 1 %}
+                    <div class="eq-a-2">正常</div>
+                {% else %}
+                    <div class="eq-a-2" style="background-color: red; border: 5px solid red">维修</div>
+                {% endif %}
+
+           </div>
+
+       </div>
+       <div>
+           <div class="eq-ac"><h3>池外控制器状态</h3></div>
+           <div>
+                {% if row.17.0 == 1 %}
+                <div class="eq-ac-1">正常</div>
+                {% else %}
+                    <div class="eq-ac-1" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+
+               {% if row.18.0 == 1 %}
+                <div class="eq-ac-2">正常</div>
+                {% else %}
+                    <div class="eq-ac-2" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+              {% if row.20.0 == 1 %}
+                <div class="eq-ac-3">正常</div>
+                {% else %}
+                    <div class="eq-ac-3" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+               {% if row.21.0 == 1 %}
+                <div class="eq-ac-4">正常</div>
+                {% else %}
+                    <div class="eq-ac-4" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+               {% if row.23.0 == 1 %}
+                <div class="eq-ac-5">正常</div>
+                {% else %}
+                    <div class="eq-ac-5" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+               {% if row.24.0 == 1 %}
+                <div class="eq-ac-6">正常</div>
+                {% else %}
+                    <div class="eq-ac-6" style="background-color: red; border: 5px solid red">添加</div>
+                {% endif %}
+           </div>
+{#           <div class="eq-ac-7">7</div>#}
+           <div>
+               <div class="eq-ad-1">PH调节</div>
+               <div class="eq-ad-2">固液分离</div>
+               <div class="eq-ad-3">重金属吸收</div>
+               <div class="eq-ad-4">氨氮吸收</div>
+           </div>
+       </div>
+   </div>
+    </div>
+{% endblock %}

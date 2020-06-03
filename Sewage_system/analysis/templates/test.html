@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>变化详情</title>
+{% endblock %}
+{% block left %}
+    <a href="/analysis/index/"
+       style="position: absolute;
+       left: 100px;
+       border: 1px solid burlywood;
+       width: 80px;
+       height: 80px;
+       border-radius: 40px;
+       text-align: center;
+       background-color: burlywood;
+       text-decoration: none"><h2>返回</h2></a>
+    <div style="position: absolute;left: 300px ;top: 140px;"><h2>实时变化</h2></div>
+    <div style="position: absolute;left: 350px;top: 200px"><img src="/static/images/gif.png"></div>
+    <div style="position: absolute;left: 360px;width: 1px; top: 230px">数值大小 / 含量</div>
+    <div style="position: absolute;left: 900px;top: 650px">测量编号</div>
+{% endblock %}

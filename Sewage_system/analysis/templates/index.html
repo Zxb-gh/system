@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+    {% block title %}
+	<title>实时显示</title>
+    {% endblock %}
+
+{% block left %}
+    <div class="web-1" >
+		<div ><a href="" class="page-1" style="display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#DA70D6;
+                    text-align: center;
+                    line-height: 90px;"><h2>实时显示</h2></a></div>
+		<div ><a href="/analysis/alert/" class="page-2"
+                 style="display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;
+                    " >
+                    <h2>报警管理</h2>
+        </a></div>
+		<div ><a href="/analysis/manage/" class="page-3" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;">
+            <h2>设备管理</h2></a></div>
+		<div ><a href="/analysis/history/" class="page-4" style="
+		            display:block;
+                    text-decoration: none;
+                    width:150px;
+                    height:150px;
+                    border:1px solid #3bd8da;
+                    background:#778899;
+                    text-align: center;
+                    line-height: 90px;">
+            <h2>历史查询</h2></a></div>
+	</div>
+	<div class="web-2">
+		<div class="web-3"style="left: 460px">
+			<div class="cell-1">
+				<div class="c-1"style="left: 20px"><h2>一级处理池状况</h2></div>
+				<div class="cel-1">
+                    {% if ph_1_1.0.1 == 1 %}
+                        <a href="/analysis/matlp/1/" class="p-1"style="text-decoration:none;"><h4>{{ph_1_1.0.0}}</h4></a>
+                    {% else %} }
+                        <a href="/analysis/matlp/1/" class="p-1" style="background-color: red;text-decoration:none;"><h4>{{ph_1_1.0.0}}</h4></a>
+                    {% endif %}
+
+					{% if ph_1_1.1.1 == 1 %}
+                        <a href="/analysis/matlp/2/" class="p-2" style="text-decoration:none;"><h4>{{ph_1_1.1.0}}</h4></a>
+                    {% else %} }
+                        <a href="/analysis/matlp/2/" class="p-2" style="background-color: red;text-decoration:none;"><h4>{{ph_1_1.1.0}}</h4></a>
+                    {% endif %}
+					<div class="c-1-1"style="left: 250px"><h3>实时PH值</h3></div>
+{#                    {% endfor %}#}
+				</div>
+
+				<div class="cel-2">
+                    {% if s.1.1 == 1 %}
+					    <a href="/analysis/matlp/3/" class="s-1"style="text-decoration:none;"><h4 class="h1">{{ s.1.0 }}mg/L</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/3/" class="s-1" style="background-color: red;text-decoration:none;"><h4 class="h1">{{ s.1.0 }}mg/L</h4></a>
+                    {% endif %}
+                    {% if s.0.1 == 1 %}
+                        <a href="/analysis/matlp/4/" class="s-2" style="text-decoration:none;"><h4>{{ s.0.0 }}mg/L</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/4/" class="s-2" style="background-color: red;text-decoration:none;"><h4>{{ s.0.0 }}mg/L</h4></a>
+                    {% endif %}
+
+					<div class="c-1-2" style="height: 10px;top: 95px; position: absolute;border:30px"><h3>固体含量变化</h3></div>
+				</div>
+			</div>
+
+			<div class="cell-2">
+				<div class="c-2" style="position: absolute; top:220px;left: 5px;"><h2>二级处理池状况</h2></div>
+				<div class="cel-3" style="position: absolute; top:300px;">
+                    {% if ph_1_1.3.1 == 1 %}
+					    <a href="/analysis/matlp/5/" class="p-3"style="position:absolute; top:10px;left: 233px;text-decoration:none;"><h4>{{ ph_1_1.3.0 }}</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/5/" class="p-3" style="position:absolute; top:10px;left: 233px;text-decoration:none;background-color: red"><h4>{{ ph_1_1.3.0 }}</h4></a>
+                    {% endif %}
+                    {% if ph_1_1.4.1 == 1 %}
+					    <a href="/analysis/matlp/6/" class="p-4" style="position:absolute;top:12px;left: 373px;text-decoration:none;"><h4>{{ ph_1_1.4.0 }}</h4></a>
+                    {% else %}
+                         <a href="/analysis/matlp/6/" class="p-4" style="position:absolute;top:12px;background-color: red;text-decoration:none;"><h4>{{ ph_1_1.4.0 }}</h4></a>
+                    {% endif %}
+					<div class="c-1-3"style="position: absolute;top: 80px;left: 80px"><h3>实时PH值</h3></div>
+				</div>
+
+				<div class="cel-4" style="position: absolute">
+                    {% if m.0.1 == 1 %}
+					    <a href="/analysis/matlp/7/" class="m-1" style="position: absolute;top: 100px;text-decoration:none;"><h4>{{ m.0.0 }}mg/L</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/7/" class="m-1" style="position:absolute;top:220px;background-color: red;text-decoration:none;"><h4>{{ m.0.0 }}mg/L</h4></a>
+                    {% endif %}
+                `   {% if m.1.1 == 1 %}
+					    <a href="/analysis/matlp/8/" class="m-2" style="text-decoration:none;position: absolute;top: 215px;"><h4>{{ m.1.0 }}mg/L</h4></a>
+                    {% else %}
+                         <a href="/analysis/matlp/8/" class="m-2" style="background-color: red;text-decoration:none;"><h4>{{ m.1.0 }}mg/L</h4></a>
+                    {% endif %}
+					<div class="c-1-4" style="position:absolute;top: 288px;text-decoration:none;width: 150px;"><h3>锌含量变化</h3></div>
+				</div>
+			</div>
+
+			<div class="cell-3">
+				<div class="c-3" style="position: absolute; top:420px;left: 5px;"><h2>三级处理池状况</h2></div>
+				<div class="cel-5">
+                    {% if ph_1_1.6.1 == 1 %}
+					    <a href="/analysis/matlp/9/" class="p-5"style="position: absolute;top: 500px;text-decoration:none;"><h4>{{ ph_1_1.6.0 }}</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/9/" class="p-5" style="position: absolute;top: 500px;background-color: red;text-decoration:none;"><h4>{{ ph_1_1.6.0 }}</h4></a>
+                    {% endif %}
+                    {% if ph_1_1.6.1 == 1 %}
+					    <a href="/analysis/matlp/10/" class="p-6"style="position: absolute;top: 500px;left: 375px;text-decoration:none;"><h4>{{ ph_1_1.7.0 }}</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/10/" class="p-6"style="position: absolute;top: 500px;left: 375px;text-decoration:none;background-color: red;"><h4>{{ ph_1_1.7.0 }}</h4></a>
+                    {% endif %}
+					<div class="c-1-5"style="position: absolute;top: 570px;left: 80px"><h3>实时PH值</h3></div>
+				</div>
+				<div class="cel-6">
+                    {% if a.1.1 == 1 %}
+					    <a href="/analysis/matlp/11/" class="a-1"style="position: absolute;top: 405px;text-decoration:none;"><h4>{{ a.1.0 }}mg/L</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/11/" class="a-1" style="background-color: red;position: absolute;top: 405px;left: 240px;text-decoration:none;"><h4>{{ a.1.0 }}mg/L</h4></a>
+                    {% endif %}
+                    {% if a.0.1 == 1 %}
+					    <a href="/analysis/matlp/12/" class="a-2" style="position:absolute;top:405px;text-decoration:none;"><h4>{{ a.0.0 }}mg/L</h4></a>
+                    {% else %}
+                        <a href="/analysis/matlp/12/" class="a-2" style="position:absolute;top:405px;background-color: red;text-decoration:none;"><h4>{{ a.0.0 }}mg/L</h4></a>
+                    {% endif %}
+					<div class="c-1-6" style="position: absolute;top: 465px;width: 150px;left: 275px"><h3>氨氮含量变化</h3></div>
+				</div>
+			</div>
+		</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
